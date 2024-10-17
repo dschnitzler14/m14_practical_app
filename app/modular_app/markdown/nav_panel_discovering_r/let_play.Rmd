@@ -1,0 +1,6 @@
+See that box to the right of this? That is your coding screen. You can type any code you want in there, hit 'run code' and see what it does.
+
+The `#` symbol is used to comment out lines you don't want to run.
+
+Let's start with something simple. Type in `2+2`, hit **run code**, and see what happens!
+                         

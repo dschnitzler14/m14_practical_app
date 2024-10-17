@@ -1,0 +1,10 @@
+We can save the result as a variable to be called later. Try this: `sum_result <- 2+2`.
+
+Then try calling that variable by running `sum_result`.
+ 
+Now, you can use that variable for future operations. For example `added_sum_result <- sum_result +2`.
+
+
+
+
+                      

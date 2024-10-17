@@ -1,0 +1,7 @@
+At its most fundamental level, R is a programming language, just like Python, JavaScript, or C. However, it was developed for statistical analysis and data visualisations. What you use it for is pretty much up to you! In fact, this app is written using an R feature, called 'Shiny'!
+
+
+With so many possibilities, it can be easy to feel overwhelmed, especially if you have never written a single line of code before or are learning the basics of statistical analysis!
+
+But don't worry, we've got you. This app will guide you through the basics and help you get started. The best thing about R is the amount of support available online from other R users!
+

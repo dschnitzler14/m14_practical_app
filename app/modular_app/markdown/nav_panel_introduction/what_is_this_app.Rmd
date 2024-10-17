@@ -1,0 +1,3 @@
+This app has been developed to guide you through the basics of R and how to you use it to analyse your own data! You will first learn how to run basic commands in R and you will have the chance to play around with the code in a 'sandbox', before we move on to loading your data, examining it, analysing it, and finally reaching the final stage of interpretation. At any stage of this tutorial, you can download the script you have generated and open it in R Studio
+
+
