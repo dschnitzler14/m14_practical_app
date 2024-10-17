@@ -2,7 +2,6 @@ library(shiny)
 
 server <- function(input, output, session) {
   
-  # Initialize a reactiveValues object to store history and the shared environment
   rv <- reactiveValues(
     code_history = character(),
     plot_history = list(),
@@ -17,7 +16,6 @@ server <- function(input, output, session) {
     user_code <- input$user_code
     
     if (!is.null(input$file1)) {
-      # Read the uploaded file into a data frame
       rv$shared_env$uploaded_file <- read.csv(input$file1$datapath)
     }
     
@@ -39,7 +37,6 @@ server <- function(input, output, session) {
       tryCatch({
         eval(parse(text = user_code), envir = rv$shared_env)
       }, error = function(e) {
-        # Handle the error gracefully, possibly by showing an empty plot or a message
         plot.new()
         text(0.5, 0.5, "Error in plot", cex = 1.5)
       })
@@ -51,13 +48,10 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$clear_cache, {
-    # Clear Ace Editor content
     updateAceEditor(session, "user_code", value = "")
     
-    # Clear code history
     rv$code_history <- character()
     
-    # Reset file input using JavaScript
     session$sendCustomMessage(type = "resetFileInput", message = "file1")
   })
   
@@ -82,7 +76,6 @@ server <- function(input, output, session) {
       tryCatch({
         eval(parse(text = user_code_analysis), envir = rv$shared_env)
       }, error = function(e) {
-        # Handle the error gracefully, possibly by showing an empty plot or a message
         plot.new()
         text(0.5, 0.5, "Error in plot", cex = 1.5)
       })
@@ -94,13 +87,10 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$clear_cache_analysis, {
-    # Clear Ace Editor content
     updateAceEditor(session, "user_code_analysis", value = "")
     
-    # Clear code history
     rv$code_history_analysis <- character()
     
-    # Reset file input using JavaScript
     session$sendCustomMessage(type = "resetFileInput", message = "file1")
   })
   
@@ -126,7 +116,6 @@ server <- function(input, output, session) {
       tryCatch({
         eval(parse(text = user_code_learning), envir = user_env_learning)
       }, error = function(e) {
-        # Handle the error gracefully, possibly by showing an empty plot or a message
         plot.new()
         text(0.5, 0.5, "Error in plot", cex = 1.5)
       })
@@ -138,14 +127,11 @@ server <- function(input, output, session) {
   })
   
   observeEvent(input$clear_learning_cache, {
-    # Clear Ace Editor content
     updateAceEditor(session, "learning_code", value = "")
     
-    # Clear code history
     rv$code_history_learning <- character()
   })
   
-  # Download handler for exporting the code
   output$download_code <- downloadHandler(
     filename = function() {
       paste("user_code", Sys.Date(), ".R", sep = "")
@@ -155,7 +141,6 @@ server <- function(input, output, session) {
     }
   )
   
-  # Download handler for exporting the analysis code
   output$download_code_analysis <- downloadHandler(
     filename = function() {
       paste("user_code_analysis", Sys.Date(), ".R", sep = "")
@@ -165,7 +150,6 @@ server <- function(input, output, session) {
     }
   )
   
-  # Download handler for exporting the learning code
   output$download_code_learning <- downloadHandler(
     filename = function() {
       paste("learning_code", Sys.Date(), ".R", sep = "")

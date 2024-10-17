@@ -1,8 +1,8 @@
 library(shiny)
 
-fluidPage(
-    selectInput("var", "Variable", names(mtcars)),
-    numericInput("bins", "bins", 10, min = 1),
-    plotOutput("hist")
-)
+source("histogram.R")
 
+fluidPage(
+  titlePanel("Main Shiny App with Histogram Module"),
+  histogramUI("hist1")
+  )

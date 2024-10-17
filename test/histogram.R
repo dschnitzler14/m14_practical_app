@@ -4,7 +4,9 @@ histogramUI <- function(id) {
     tagList(
       selectInput(NS(id, "var"), "Variable", choices = names(mtcars)),
       numericInput(NS(id, "bins"), "bins", value = 10, min = 1),
-      plotOutput(NS(id, "hist"))
+      plotOutput(NS(id, "hist")),
+      checkboxInput(NS(id, "checkbox_input"), "Checkbox", value = FALSE),
+      p("This is some text")
     )
 }
 

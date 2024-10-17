@@ -1,5 +1,7 @@
 #histogramApp
 
+source("/Users/user/github/m14_practical_analysis_app/test/histogram.R")
+
 histogramApp <- function() {
   ui <- fluidPage(
     histogramUI("hist1")
@@ -9,3 +11,5 @@ histogramApp <- function() {
   }
   shinyApp(ui, server)  
 }
+
+histogramApp()
